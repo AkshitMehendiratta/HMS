@@ -5,6 +5,10 @@ import java.awt.*;
 
 public class AddEmployee extends JFrame {
     JTextField t1,t2,t3,t4,t5,t6;
+    JRadioButton r1,r2;
+    JComboBox b1;
+    JButton b2;
+
     AddEmployee()
     {
         JLabel name=new JLabel("NAME");
@@ -27,11 +31,24 @@ public class AddEmployee extends JFrame {
         gender.setFont(new Font("Tahoma",Font.PLAIN,17));
         gender.setBounds(60,110,120,30);
         add(gender);
+        r1=new JRadioButton("Male");
+        r1.setFont(new Font("Tahoma",Font.PLAIN,12));
+        r1.setBounds(200,110,70,30);
+        add(r1);
+        r2=new JRadioButton("Female");
+        r2.setFont(new Font("Tahoma",Font.PLAIN,12));
+        r2.setBounds(260,110,70,30);
+        add(r2);
+
 
         JLabel job=new JLabel("JOB");
         job.setFont(new Font("Tahoma",Font.PLAIN,17));
         job.setBounds(60,150,120,30);
         add(job);
+        String str[]={"Front Desk Clerks","Porters","House Keeping","Kitchen Staff","Room Service","Waiter/Waiteress","Manager","Accoutnant","Receptionist"};
+        b1=new JComboBox(str);
+        b1.setBounds(200,150,150,30);
+        add(b1);
 
         JLabel salary=new JLabel("SALARY");
         salary.setFont(new Font("Tahoma",Font.PLAIN,17));
@@ -66,10 +83,27 @@ public class AddEmployee extends JFrame {
         t6=new JTextField();
         t6.setBounds(200,310,150,30);
         add(t6);
+        b2=new JButton("Submit");
+        b2.setBackground(Color.GRAY);
+        b2.setForeground(Color.BLACK);
+        b2.setBounds(200,380,150,30);
+        add(b2);
+        ImageIcon i6=new ImageIcon(ClassLoader.getSystemResource("Hotel/Management/System/icons/addemployee.jpg"));
+        Image i7=i6.getImage().getScaledInstance(350,350,Image.SCALE_DEFAULT);
+        ImageIcon i9=new ImageIcon(i7);
+        JLabel l1=new JLabel(i9);
+        l1.setBounds(380,50,450,450);
+        add(l1);
 
+        JLabel l2=new JLabel("ADD EMPLOYEE DETAILS");
+        l2.setForeground(Color.BLUE);;
+        l2.setBounds(435,30,400,30);
+        l2.setFont(new Font("Tahoma",Font.PLAIN,30));
+        add(l2);
+        getContentPane().setBackground(Color.WHITE);
 
         setLayout(null);
-        setBounds(400,200,600,450);
+        setBounds(400,200,850,500);
         setVisible(true);
     }
     public static void main(String[] args)
