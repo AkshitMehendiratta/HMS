@@ -2,8 +2,11 @@ package Hotel.Management.System;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
+import java.awt.event.*;
+import java.sql.ResultSet;
 
-public class AddEmployee extends JFrame {
+public class AddEmployee extends JFrame implements ActionListener {
     JTextField t1,t2,t3,t4,t5,t6;
     JRadioButton r1,r2;
     JComboBox b1;
@@ -87,6 +90,7 @@ public class AddEmployee extends JFrame {
         b2.setBackground(Color.GRAY);
         b2.setForeground(Color.BLACK);
         b2.setBounds(200,380,150,30);
+        b2.addActionListener(this);
         add(b2);
         ImageIcon i6=new ImageIcon(ClassLoader.getSystemResource("Hotel/Management/System/icons/addemployee.jpg"));
         Image i7=i6.getImage().getScaledInstance(350,350,Image.SCALE_DEFAULT);
@@ -103,8 +107,39 @@ public class AddEmployee extends JFrame {
         getContentPane().setBackground(Color.WHITE);
 
         setLayout(null);
-        setBounds(400,200,850,500);
+        setBounds(400,250,850,500);
         setVisible(true);
+    }
+    public void actionPerformed(ActionEvent ae)
+    {
+      String name=t1.getText();
+      String age=t2.getText();
+        String salary=t3.getText();
+        String phone=t4.getText();
+        String aadhar=t5.getText();
+        String email=t6.getText();
+        String gender=null;
+        if(r1.isSelected())
+        {
+            gender="Male";
+        }
+        else if(r2.isSelected())
+        {
+            gender="Female";
+        }
+        String job=(String)b1.getSelectedItem();
+        Conn c=new Conn();
+        String str="Insert into employee values('"+name+"','"+age+"','"+gender+"','"+job+"','"+salary+"','"+phone+"','"+aadhar+"','"+email+"')";
+         try{
+              c.s.executeUpdate(str);
+              JOptionPane.showMessageDialog(null,"New Employee added");
+              this.setVisible(false);
+
+
+         }catch(Exception e){
+
+         }
+
     }
     public static void main(String[] args)
     {
