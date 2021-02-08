@@ -110,12 +110,16 @@ public class Reception extends JFrame implements ActionListener {
 
         }
         else if(ae.getSource()==b4){
+            new Employeeinfo().setVisible(true);
+            this.setVisible(false);
 
         }
         else if(ae.getSource()==b5){
 
         }
         else if(ae.getSource()==b6){
+            new ManagerIno().setVisible(true);
+            this.setVisible(false);
 
         }
         else if(ae.getSource()==b7){
