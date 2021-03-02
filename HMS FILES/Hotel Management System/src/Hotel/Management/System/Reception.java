@@ -101,6 +101,8 @@ public class Reception extends JFrame implements ActionListener {
     }
     public void actionPerformed(ActionEvent ae) {
         if(ae.getSource()==b1){
+            new Addcustomer().setVisible(true);
+            this.setVisible(false);
 
         }
         else if(ae.getSource()==b2){
